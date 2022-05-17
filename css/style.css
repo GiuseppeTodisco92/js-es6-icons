@@ -26,4 +26,9 @@
     margin-top: 10px;
     font-size: small;
     text-align: center;
+    color: black;
+}
+
+.display_none{
+    display: none;
 }

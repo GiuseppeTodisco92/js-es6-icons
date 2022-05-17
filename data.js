@@ -133,22 +133,44 @@ const cards = [
 ];
 
 const boxCards = document.querySelector(".box_icons");
-
+let boxFontAwesome = document.createElement("div");
 
 
 cards.forEach(element => {
-	const div = document.createElement("div");
+	boxFontAwesome = document.createElement("div");
 	const cardName = document.createElement("p");
 	cardName.innerHTML = element.name;
 	cardName.classList.add("icon_name");
-	div.classList.add("box_icon");
-	div.style.color = element.color;
+	boxFontAwesome.classList.add("box_icon", element.type);
+	boxFontAwesome.style.color = element.color;
 	const fontAwesome = document.createElement("i");
 	fontAwesome.classList.add(element.family, element.prefix + element.name);
 	fontAwesome.append(cardName);
-	console.log(fontAwesome);
-	console.log(div);
-	div.append(fontAwesome);
-	boxCards.append(div);	
+	boxFontAwesome.append(fontAwesome);
+	boxCards.append(boxFontAwesome);
+	
 });
+
+const form = document.querySelector("#form");
+
+console.log(user,animal,vegetable)
+form.addEventListener("change",
+	function(){
+		let user = document.querySelectorAll(".user");
+		let animal = document.querySelectorAll(".animal");
+		let vegetable = document.querySelectorAll(".vegetable")
+		const i = form.selectedIndex;
+		console.log(form.options[i].value);
+		if(form.options[i].value === "all"){
+			console.log("stai visualizzando tutti")
+		} else if(form.options[i].value === "animal"){
+			console.log("stai visualizzando animali")
+		}else if(form.options[i].value === "vegetable"){
+			console.log("stai visualizzando vegetali")
+		}else{
+			console.log("stai visualizzando user")
+		}
+			
+	}
+);
 
