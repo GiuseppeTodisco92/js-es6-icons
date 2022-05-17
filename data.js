@@ -134,6 +134,7 @@ const cards = [
 
 const boxCards = document.querySelector(".box_icons");
 let boxFontAwesome = document.createElement("div");
+const form = document.querySelector("#form");
 
 
 cards.forEach(element => {
@@ -148,29 +149,71 @@ cards.forEach(element => {
 	fontAwesome.append(cardName);
 	boxFontAwesome.append(fontAwesome);
 	boxCards.append(boxFontAwesome);
-	
+
 });
 
-const form = document.querySelector("#form");
+let user = document.querySelectorAll(".user");
+let animal = document.querySelectorAll(".animal");
+let vegetable = document.querySelectorAll(".vegetable");
 
-console.log(user,animal,vegetable)
+
+console.log(vegetable)
 form.addEventListener("change",
 	function(){
-		let user = document.querySelectorAll(".user");
-		let animal = document.querySelectorAll(".animal");
-		let vegetable = document.querySelectorAll(".vegetable")
+		
 		const i = form.selectedIndex;
-		console.log(form.options[i].value);
 		if(form.options[i].value === "all"){
+			user.forEach(element => {
+				element.classList.remove("display_none");
+			});
+			animal.forEach(element => {
+				element.classList.remove("display_none");
+			});
+			vegetable.forEach(element => {
+				element.classList.remove("display_none");
+			});
+			// console.log(user,animal,vegetable);
 			console.log("stai visualizzando tutti")
 		} else if(form.options[i].value === "animal"){
+			user.forEach(element => {
+				element.classList.add("display_none");
+			});
+			animal.forEach(element => {
+				element.classList.remove("display_none");
+			});
+			vegetable.forEach(element => {
+				element.classList.add("display_none");
+			});
+			// console.log(animal);
 			console.log("stai visualizzando animali")
 		}else if(form.options[i].value === "vegetable"){
+			user.forEach(element => {
+				element.classList.add("display_none");
+			});
+			animal.forEach(element => {
+				element.classList.add("display_none");
+			});
+			vegetable.forEach(element => {
+				element.classList.remove("display_none");
+			});
+			// console.log(vegetable);
 			console.log("stai visualizzando vegetali")
 		}else{
+			user.forEach(element => {
+				element.classList.remove("display_none");
+			});
+			animal.forEach(element => {
+				element.classList.add("display_none");
+			});
+			vegetable.forEach(element => {
+				element.classList.add("display_none");
+			});
+			
+			// console.log(user);
 			console.log("stai visualizzando user")
 		}
 			
 	}
 );
+
 
